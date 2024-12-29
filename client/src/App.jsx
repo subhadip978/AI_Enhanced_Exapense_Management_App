@@ -9,7 +9,8 @@ import { AuthContext } from './context/AuthContext';
 import TransectionHistory from './pages/TransectionHistory';
 import Leaderboard from './pages/Leaderboard';
 import { Toaster } from 'react-hot-toast';
-// Toaster
+import Landing from './pages/Landing';
+
 
 
 const App = () => {
@@ -24,11 +25,13 @@ const App = () => {
    );
  };
   
+
+
   
    const ProtectedRoute = ({ children }) => {
    
      if (!currentUser) {
-       return <Navigate to="/login" />; 
+       return <Navigate to="/landing" />; 
      }
      return children;
    };
@@ -51,10 +54,10 @@ const App = () => {
           <Route path="/leaderboard" element={<Leaderboard/>}></Route>
         </Route> 
 
-
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/landing"  element={<Landing/>}/> 
+         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/logout"  element={< />}/> */}
+       
         
       </Routes>
    
